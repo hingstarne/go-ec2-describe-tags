@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"net/http"
 	"os"
 	"strings"
 
@@ -13,10 +12,11 @@ import (
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ec2"
+	"github.com/sethgrid/pester"
 )
 
 func get(url string) (string, error) {
-	response, err := http.Get(url)
+	response, err := pester.Get(url)
 	if err != nil {
 		return "", err
 	}
